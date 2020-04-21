@@ -5,6 +5,7 @@ package main
 
 // import statement allows you to import other packages to be used in your application
 import (
+	"errors"
 	"fmt"
 	"math/rand"
 	"time"
@@ -50,13 +51,6 @@ func main() {
 		fmt.Println(i)
 	}
 
-	check := true
-
-	for check {
-		fmt.Println("in go for acts like a while in other languages")
-		check = false
-	}
-
 	var tstArr [1]string
 	strVal := "test String in array"
 	tstArr[0] = strVal
@@ -68,6 +62,13 @@ func main() {
 
 	for i := range tstArr {
 		fmt.Printf("%d: %s\t%p\n", i, tstArr[i], &tstArr[i])
+	}
+
+	check := true
+
+	for check {
+		fmt.Println("in go for acts like a while in other languages")
+		check = false
 	}
 
 	// if
@@ -101,4 +102,68 @@ func main() {
 	default:
 		fmt.Println("random number greater than 80")
 	}
+
+	// Arrays
+
+	// var myArray [2]string
+	myArray := new([2]string)
+
+	myArray[0] = "Apple"
+	myArray[1] = "Orange"
+	fmt.Println(myArray)
+
+	// Slices
+
+	var myInitSlice []int
+	fmt.Printf("Length: %d\t Capacity: %d\n", len(myInitSlice), cap(myInitSlice))
+	fmt.Println(myInitSlice)
+
+	myMakeSlice := make([]int, 5)
+	fmt.Printf("Length: %d\t Capacity: %d\n", len(myMakeSlice), cap(myMakeSlice))
+	fmt.Println(myMakeSlice)
+
+	var myNewSlice = new([10]int)[0:5]
+	fmt.Printf("Length: %d\t Capacity: %d\n", len(myNewSlice), cap(myNewSlice))
+	fmt.Println(myNewSlice)
+
+	mySlice := make([]string, 3)
+	mySlice[0] = "Red"
+	mySlice[1] = "Blue"
+	mySlice[2] = "Green"
+	fmt.Println(mySlice)
+
+	mySlice2 := make([]string, 3, 6)
+	mySlice2[0] = "Red"
+	mySlice2[1] = "Blue"
+	mySlice2[2] = "Green"
+	fmt.Println(mySlice2)
+
+	fmt.Printf("Length: %d\t Capacity: %d\n", len(mySlice), cap(mySlice))
+	mySliceApp := append(mySlice, "Yellow")
+	fmt.Printf("Length: %d\t Capacity: %d\n", len(mySliceApp), cap(mySliceApp))
+
+	// functions
+
+	a, _ := div(10, 2)
+	fmt.Println(a)
+
+	inlineFunc := func(name string) {
+		fmt.Println("My name is " + name)
+	}
+
+	inlineFunc("Gurbakhshish")
+
+	func() {
+		fmt.Println("Func with no name")
+	}()
+}
+
+func div(a int, b int) (res float32, err error) {
+	if b == 0 {
+		err = errors.New("divided by zero")
+		return
+	}
+
+	res = float32(a) / float32(b)
+	return
 }
