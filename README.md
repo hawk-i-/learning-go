@@ -15,4 +15,4 @@ Download the executables from [golang download page](https://dl.google.com/go/go
 
 
 Sub-Slices
-![subslices]("basics/subslices.png")
+![subslices](basics/subslices.png)
