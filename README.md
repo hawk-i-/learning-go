@@ -12,3 +12,6 @@ Download the executables from [golang download page](https://dl.google.com/go/go
 ## Index
 
 1. Basics
+
+Sub-Slices
+![subslices]("./basics/subslices.png")

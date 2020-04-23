@@ -3,7 +3,6 @@
 // If a package contains runnable entry point then the package has to be named main, otherwise a more complex naming schema is followed where last part of package name has to match the folder name
 package main
 
-// import statement allows you to import other packages to be used in your application
 import (
 	"errors"
 	"fmt"
@@ -22,7 +21,6 @@ func main() {
 	s1 = "First String"
 	fmt.Println(s1)
 
-	// s2 = "Second String"
 	s2 := "Second String"
 	fmt.Println(s2)
 
@@ -139,8 +137,23 @@ func main() {
 	fmt.Println(mySlice2)
 
 	fmt.Printf("Length: %d\t Capacity: %d\n", len(mySlice), cap(mySlice))
+	fmt.Printf("%p", &mySlice[0])
 	mySliceApp := append(mySlice, "Yellow")
+	fmt.Printf("%p", &mySlice[0])
 	fmt.Printf("Length: %d\t Capacity: %d\n", len(mySliceApp), cap(mySliceApp))
+
+	// Subslices
+	mySlice = []string{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
+	fmt.Println(mySlice)
+	mySubSlice1 := mySlice[1:5]
+	mySubSlice2 := mySlice[2:6]
+	fmt.Println(mySubSlice1)
+	fmt.Println(mySubSlice2)
+
+	mySubSlice1[1] = "when? Huh? What day?"
+	fmt.Println(mySubSlice1)
+	fmt.Println(mySubSlice2)
+	fmt.Println(mySlice)
 
 	// functions
 
